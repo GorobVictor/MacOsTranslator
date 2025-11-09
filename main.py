@@ -15,7 +15,7 @@ last_press = 0
 def show_dialog(text):
     safe_text = text.replace("\\", "\\\\").replace('"', '\\"')
 
-    script = f'display dialog "{safe_text}" buttons {{"OK"}} default button "OK" with title "{safe_text}"'
+    script = f'display dialog "{safe_text}" buttons {{"OK"}} default button "OK" with title "Переклад."'
 
     try:
         osascript.run(script)
