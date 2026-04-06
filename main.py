@@ -37,12 +37,10 @@ def translate_text(text: str):
         api_key=config.get("openai_api_key"),
     )
 
-    prompt = f"Translate:\n\n{text}"
-
     response = client.responses.create(
-        model="gpt-4.1-nano",
-        instructions="You are a helpful translator who automatically detects the language of the text and translates it into Ukrainian, and if the text is in Ukrainian, you translate it into English.",
-        input=prompt
+        model=config.get("model"),
+        instructions=config.get("prompt"),
+        input=text
     )
 
     return response.output_text.strip()
